@@ -5,54 +5,43 @@
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jstl/core_rt"
 	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:p="http://primefaces.org/ui"
 	template="/templates/defaultLayout.xhtml">
 
 	<ui:define name="content">
-		<f:view>
-		
-	    <div class="message">
-	        <c:if test="#{param.error == 1 and SPRING_SECURITY_LAST_EXCEPTION != null}">
-	            <span class="error">#{msgs['text.failureloginmessage']}</span>
-	            <br/>
-	            <span class="error">#{msgs['text.grund']}: #{SPRING_SECURITY_LAST_EXCEPTION.message}</span>
-	        </c:if>
-	    </div>
-		
-			<h:form
-				id="loginForm"
-				prependId="false">
-				<label for="j_username"><h:outputText value="Username:" /><br />
-				</label>
-				<h:inputText
-					id="j_username"
-					required="true">
-				</h:inputText>
-	 
-				<br />
-				<br />
-				<label for="j_password"><h:outputText value="Password:" /><br />
-				</label>
-				<h:inputSecret
-					id="j_password"
-					required="true">
-				</h:inputSecret>
-	 
-				<br />
-				<br />
-				<label for="_spring_security_remember_me"> <h:outputText
-					value="Remember me" /> </label>
-				<h:selectBooleanCheckbox
-					id="_spring_security_remember_me" />
-				<br />
-	 
-				<h:commandButton
-					type="submit"
-					id="login"
-					action="#{loginBean.doLogin}"
-					value="Login" />
-	 
-			</h:form>
-		</f:view>
+	
+		<h:form
+			id="loginForm"
+			prependId="false">
+		    <div class="message">
+		        <c:if test="#{param.error == 1 and SPRING_SECURITY_LAST_EXCEPTION != null}">
+		            <span class="error">#{msgs['text.failureloginmessage']}</span>
+		            <br/>
+		            <span class="error">#{msgs['text.grund']}: #{SPRING_SECURITY_LAST_EXCEPTION.message}</span>
+		        </c:if>
+		    </div>
+			
+			<p:panel header="Login">
+				<h:panelGrid columns="2" bgcolor="#eff5fa" cellspacing="5"
+					frame="box">
+					<h:outputLabel value="Username:" />
+					<h:inputText id="j_username" tabindex="1" />
+					<h:outputLabel value="Password:" />
+					<h:inputSecret id="j_password" />
+					<h:outputLabel value="" />
+					<h:commandButton
+						type="submit"
+						id="login"
+						action="#{loginBean.doLogin}"
+						value="Login" />
+					<label for="_spring_security_remember_me"> <h:outputText
+						value="Remember me" /> </label>
+					<h:selectBooleanCheckbox
+						id="_spring_security_remember_me" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+
 	</ui:define>
 
 </ui:composition>
