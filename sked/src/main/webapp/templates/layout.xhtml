@@ -15,8 +15,8 @@
 
 <!-- 
     <h:outputScript library="javascript" name="util.js" target="head"/>
- -->          
     <h:outputStylesheet library="css" name="base.css" target="body"/>
+ -->          
     	    
   </h:head>
   
@@ -24,19 +24,19 @@
   
   	<p:layout fullPage="true">
   	
-	    <p:layoutUnit position="top" height="75">  
+	    <p:layoutUnit position="north" height="75">  
 			<div id="header">
 		      	<ui:insert name="header"/>
 			</div>
 	    </p:layoutUnit>  
 	      
-	    <p:layoutUnit position="bottom" height="75">  
+	    <p:layoutUnit position="south" height="75">  
 			<div id="footer">
 		        <ui:insert name="footer"/>
 			</div>
 	    </p:layoutUnit>  
 	      
-	    <p:layoutUnit position="left" width="250">  
+	    <p:layoutUnit position="west" width="250">  
 			<div id="menu">
 		        <ui:insert name="menu"/>
 			</div>
@@ -46,7 +46,7 @@
 	    <p:layoutUnit position="right" width="200" header="Right" resizable="true" closable="false" collapsible="true">  
  -->
  	      
-	    <p:layoutUnit position="right" width="250">  
+	    <p:layoutUnit position="east" width="250">  
 			<div id="sidebar">
 		        <ui:insert name="sidebar"/>
 			</div>

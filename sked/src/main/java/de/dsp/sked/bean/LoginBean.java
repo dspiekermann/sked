@@ -14,11 +14,18 @@ import org.springframework.stereotype.Controller;
 public class LoginBean {
 
     // This is the action method called when the user clicks the "login" button
-    public String doLogin() throws IOException, ServletException
-    {
+    public String doLogin() throws IOException, ServletException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext externalContext = facesContext.getExternalContext();
         externalContext.dispatch("/j_spring_security_check");
+        facesContext.responseComplete();
+        return null;
+    }	
+
+    public String doLogout() throws IOException, ServletException {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        externalContext.dispatch("/j_spring_security_logout");
         facesContext.responseComplete();
         return null;
     }	

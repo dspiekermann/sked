@@ -36,8 +36,8 @@
 			login-page="/login.xhtml"
 			default-target-url="/"
 			authentication-failure-url="/login.xhtml" />
-		<logout logout-url="/logout.xhtml"
-			logout-success-url="/" />  
+		<logout invalidate-session="true" logout-url="/j_spring_security_logout"
+			logout-success-url="/login.xhtml" />  
         <remember-me />
 		<!--
 		    Uncomment to enable X509 client authentication support
