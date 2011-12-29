@@ -10,14 +10,12 @@
 
 	<ui:define name="content">
 
-		    <div class="message">
-		        <c:if test="#{param.error == 1 and SPRING_SECURITY_LAST_EXCEPTION != null}">
-		            <span class="error">#{msgs['text.failureloginmessage']}</span>
-		            <br/>
-		            <span class="error">#{msgs['text.grund']}: #{SPRING_SECURITY_LAST_EXCEPTION.message}</span>
-		        </c:if>
-		    </div>
-	
+		<f:metadata>
+		    <f:viewParam name="error" value="#{loginBean.errorCode}" />
+		    <f:event type="preRenderView" listener="#{loginBean.checkErrors}" />
+		</f:metadata>
+		
+		<p:messages />
 		<h:form
 			id="loginForm"
 			prependId="false">

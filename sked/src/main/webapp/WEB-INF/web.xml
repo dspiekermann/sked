@@ -26,6 +26,17 @@
 		<param-value>.xhtml</param-value>
 	</context-param>
  
+  <context-param>
+       <param-name>facelets.SKIP_COMMENTS</param-name>
+       <param-value>true</param-value>
+  </context-param>
+
+<context-param>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+</context-param>
+  
+  
   <!-- Welcome page -->
   <welcome-file-list>
     <welcome-file>faces/default.xhtml</welcome-file>

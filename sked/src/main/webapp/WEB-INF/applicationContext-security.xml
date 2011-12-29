@@ -35,7 +35,7 @@
 			login-processing-url="/j_spring_security_check"
 			login-page="/login.xhtml"
 			default-target-url="/"
-			authentication-failure-url="/login.xhtml" />
+			authentication-failure-url="/login.xhtml?error=1" />
 		<logout invalidate-session="true" logout-url="/j_spring_security_logout"
 			logout-success-url="/login.xhtml" />  
         <remember-me />
