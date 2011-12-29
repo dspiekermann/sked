@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 
 import org.springframework.context.annotation.Scope;
@@ -20,6 +21,11 @@ public class LanguageBean {
 		countries = new LinkedHashMap<String, Object>();
 		countries.put("English", Locale.ENGLISH); // label, value
 		countries.put("German", Locale.GERMAN);
+	}
+	
+	@PostConstruct
+	public void init(){
+		localeCode = FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
 	}
 
 	public Map<String, Object> getCountriesInMap() {

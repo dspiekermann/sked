@@ -8,10 +8,10 @@
    	<h:form>
 	   	<div id="language">
 			<h:outputText value="#{msg['label.language']}:" id="label_language"/> 
-			<p:selectOneMenu id="selectedLanguage" value="#{languageBean.localeCode}" onchange="submit();" >
+			<p:selectOneMenu id="selectedLanguage" value="#{languageBean.localeCode}" onchange="submit()">
 	   			<f:selectItems value="#{languageBean.countriesInMap}" />
 	   			<!-- der Zustand wird in der Bean geaendert, danach submitted und somit in der gewaehlten Sprache alles neu geschrieben -->
-	   			<p:ajax process="selectedLanguage" event="change" listener="#{languageBean.countryLocaleCodeChanged}" />
+	   			<p:ajax process="selectedLanguage" event="change" listener="#{languageBean.countryLocaleCodeChanged}"/>
 	   		</p:selectOneMenu>   	
 	   	</div>
    	</h:form>

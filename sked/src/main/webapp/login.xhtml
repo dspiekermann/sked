@@ -16,28 +16,30 @@
 		</f:metadata>
 		
 		<p:messages />
-		<h:form
-			id="loginForm"
-			prependId="false">
+		
+		<h:form	id="loginForm" prependId="false">
 			
 			<p:panel header="#{msg['label.login']}">
-				<h:panelGrid columns="2" cellspacing="5"
-					frame="box">
+				<h:panelGrid columns="2" cellspacing="5" frame="box">
 
 					<h:outputLabel value="#{msg['label.username']}:" />
-					<h:inputText id="j_username" tabindex="1" />
+					<p:inputText id="j_username" tabindex="1" />
 					<h:outputLabel value="#{msg['label.password']}:" />
-					<h:inputSecret id="j_password" />
+					<p:inputText id="j_password" tabindex="2" type="password"/>
 					<h:outputLabel value="" />
+					
 					<h:commandButton
 						type="submit"
 						id="login"
 						action="#{loginBean.doLogin}"
 						value="#{msg['label.login']}" />
-					<label for="_spring_security_remember_me"> <h:outputText
-						value="#{msg['label.rememberme']}" /> </label>
-					<h:selectBooleanCheckbox
-						id="_spring_security_remember_me" />
+						
+					<label for="_spring_security_remember_me"> 
+						<h:outputText value="#{msg['label.rememberme']}" /> 
+					</label>
+					
+					<h:selectBooleanCheckbox id="_spring_security_remember_me" />
+					
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
