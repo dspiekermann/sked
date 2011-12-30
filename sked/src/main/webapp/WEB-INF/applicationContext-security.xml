@@ -10,40 +10,23 @@
 
     <http use-expressions="true" auto-config="true">
 		 
-
-<!-- 
-        <intercept-url pattern="/faces/default.xhtml" access="permitAll" />
- -->        
-        <intercept-url pattern="/login.xhtml" access="permitAll" />
-        <intercept-url pattern="/faces/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/public/**" access="permitAll" />
+        <intercept-url pattern="/protected/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/index.html" access="permitAll" />
-        <intercept-url pattern="/timeout.html" access="permitAll" />
-        <intercept-url pattern="/redirect.html" access="permitAll" />
-        <intercept-url pattern="/media/**" access="permitAll" />
-        <intercept-url pattern="/includes/**" access="permitAll" />
-        <intercept-url pattern="/office/admin/**" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/office/**" access="hasRole('ROLE_USER')" />
 
-<!-- 
-        <form-login login-page="/login.xhtml" 
-        		authentication-failure-url="/login.xhtml?login_error=1"
-        		default-target-url='/faces/default.xhtml'
-				always-use-default-target='true'
-        		/>
-  -->
 		<form-login
 			login-processing-url="/j_spring_security_check"
-			login-page="/login.xhtml"
-			default-target-url="/"
-			authentication-failure-url="/login.xhtml?error=1" />
+			login-page="/public/login.xhtml"
+			default-target-url="/protected/default.xhtml"
+			authentication-failure-url="/public/login.xhtml?error=1" />
 		<logout invalidate-session="true" logout-url="/j_spring_security_logout"
-			logout-success-url="/login.xhtml" />  
+			logout-success-url="/protected/default.xhtml" />  
         <remember-me />
 		<!--
 		    Uncomment to enable X509 client authentication support
 		        <x509 />
 		-->
-        <session-management invalid-session-url="/login.xhtml">
+        <session-management invalid-session-url="/public/login.xhtml">
             <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
         </session-management>
     </http>

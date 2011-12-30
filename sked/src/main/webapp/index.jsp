@@ -1,1 +1,1 @@
-<% response.sendRedirect("faces/default.xhtml"); %>
+<% response.sendRedirect("protected/default.xhtml"); %>
