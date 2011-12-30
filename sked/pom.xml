@@ -254,8 +254,8 @@
 	        <groupId>org.primefaces</groupId>  
 	        <artifactId>primefaces</artifactId>  
 	        <version>${org.primefaces.version}</version>  
-	    </dependency>  		
-	</dependencies>
+	    </dependency>
+   </dependencies>
 	<build>
 		<finalName>sked</finalName>
 	</build>
