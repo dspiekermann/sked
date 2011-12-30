@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 
 import org.springframework.context.annotation.Scope;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Controller;
 @Scope("session")
 public class LanguageBean {
 
-	private String localeCode;
+	private Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
 
 	private static Map<String, Object> countries;
 	static {
@@ -23,21 +22,24 @@ public class LanguageBean {
 		countries.put("German", Locale.GERMAN);
 	}
 	
-	@PostConstruct
-	public void init(){
-		localeCode = FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
-	}
-
 	public Map<String, Object> getCountriesInMap() {
 		return countries;
 	}
+	
+	public Locale getLocale() {
+		return locale;
+	}
+
+	public void setLocale(Locale locale) {
+		this.locale = locale;
+	}
 
 	public String getLocaleCode() {
-		return localeCode;
+		return locale.getLanguage();
 	}
 
 	public void setLocaleCode(String localeCode) {
-		this.localeCode = localeCode;
+		this.locale = new Locale(localeCode);
 	}
 
 	// value change event listener
@@ -45,7 +47,7 @@ public class LanguageBean {
 		// loop country map to compare the locale code
 		for (Map.Entry<String, Object> entry : countries.entrySet()) {
 
-			if (entry.getValue().toString().equals(localeCode)) {
+			if (entry.getValue().toString().equals(locale)) {
 
 				FacesContext.getCurrentInstance().getViewRoot().setLocale((Locale) entry.getValue());
 

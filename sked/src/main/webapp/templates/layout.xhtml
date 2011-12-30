@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:p="http://primefaces.org/ui">
+<html lang="#{languageBean.localeCode}" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+   	xmlns:h="http://java.sun.com/jsf/html"
+   	xmlns:ui="http://java.sun.com/jsf/facelets"
+   	xmlns:p="http://primefaces.org/ui">
 
   <h:head>
     <title>
@@ -15,12 +17,14 @@
 
 <!-- 
     <h:outputScript library="javascript" name="util.js" target="head"/>
-    <h:outputStylesheet library="css" name="base.css" target="body"/>
  -->          
+    <h:outputStylesheet library="css" name="base.css" target="head"/>
     	    
   </h:head>
   
   <h:body>  
+  
+  	<f:view locale="#{languageBean.locale}" />
   
   	<p:layout fullPage="true">
   	
