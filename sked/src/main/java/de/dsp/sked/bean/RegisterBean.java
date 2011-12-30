@@ -7,6 +7,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -23,16 +25,16 @@ public class RegisterBean extends JsfBeanAbstract{
 	@Inject
 	public UserService userService;
 	
-//	@NotNull
+	@NotNull
 	private String username = null;
-//	@NotNull
+	@NotNull
 	private String password = null;
-//	@NotNull
+	@NotNull
 	private String repassword = null;
 	private String name = null;
 	private String surname = null;
-//	@NotNull
-//	@Pattern(regexp = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", message = "Email format is invalid.")
+	@NotNull
+	@Pattern(regexp = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+", message = "Email format is invalid.")
 	private String email = null;
 	
 	public String getRepassword() {
