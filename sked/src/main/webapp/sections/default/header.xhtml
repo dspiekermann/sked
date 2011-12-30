@@ -4,20 +4,44 @@
 	xmlns:p="http://primefaces.org/ui"
    	xmlns:ui="http://java.sun.com/jsf/facelets"
    	>
-   	
-   	<h:form>
-	   	<div id="language">
-			<h:outputText value="#{msg['label.language']}:" id="label_language"/> 
-			<p:selectOneMenu id="selectedLanguage" value="#{languageBean.localeCode}" onchange="submit()">
-	   			<f:selectItems value="#{languageBean.countriesInMap}" />
-	   			<!-- der Zustand wird in der Bean geaendert, danach submitted und somit in der gewaehlten Sprache alles neu geschrieben -->
-	   			<p:ajax process="selectedLanguage" event="change" listener="#{languageBean.countryLocaleCodeChanged}"/>
-	   		</p:selectOneMenu>   	
-	   	</div>
-   	</h:form>
-   	
-   	<div id="logout">
-   		<h:link outcome="logout" title="#{msg['label.logout']}" value="#{msg['label.logout']}"/>
-    </div>
+
+	<div id="header">   	
+		
+		<div id="top-header">   	
+			<div id="top-header-left">
+			   	<div id="logo-container">
+				    <ui:include src="/sections/default/header/logo.xhtml"/>
+			    </div>
+			</div>
+			
+			<div id="top-header-center">
+				<div id="navigation-container">
+				    <ui:include src="/sections/default/header/navigation.xhtml"/>
+				</div>
+			</div>
+			
+			<div id="top-header-right">
+
+				<h:panelGrid columns="2" style="float: right;">
+					<h:panelGroup>
+					   	<div id="language-container">
+						    <ui:include src="/sections/default/header/language.xhtml"/>
+					    </div>
+					</h:panelGroup>
+					<h:panelGroup>
+					   	<div id="logout-container">
+						    <ui:include src="/sections/default/header/logout.xhtml"/>
+					    </div>
+					</h:panelGroup>
+				   	
+				</h:panelGrid>
+			
+			</div>
+		</div>
+		
+		<div id="bottom-header">   	
+		</div>
+		
+	</div>
 
 </ui:composition>

@@ -19,6 +19,7 @@
     <h:outputScript library="javascript" name="util.js" target="head"/>
  -->          
     <h:outputStylesheet library="css" name="base.css" target="head"/>
+    <h:outputStylesheet library="css" name="sked.css" target="head"/>
     	    
   </h:head>
   
@@ -28,7 +29,7 @@
   
   	<p:layout fullPage="true">
   	
-	    <p:layoutUnit position="north" height="75">  
+	    <p:layoutUnit position="north" height="90">  
 			<div id="header">
 		      	<ui:insert name="header"/>
 			</div>
@@ -46,10 +47,6 @@
 			</div>
 	    </p:layoutUnit>  
 
-<!-- 
-	    <p:layoutUnit position="right" width="200" header="Right" resizable="true" closable="false" collapsible="true">  
- -->
- 	      
 	    <p:layoutUnit position="east" width="250">  
 			<div id="sidebar">
 		        <ui:insert name="sidebar"/>
