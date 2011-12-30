@@ -77,7 +77,10 @@ public class RegisterBean extends JsfBeanAbstract{
 	public boolean validateUsername() {
 		User user = userService.findUserByUsername(username);
 		if (user!=null){
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "A user with this username is already registered.", "User already exists. Please choose another username.");
+		    String text = DspTools.getMsg("error.user_already_exists");			
+		    String textDetail = DspTools.getMsg("error.user_already_exists_details");			
+//			FacesMessage message = MessageFactory.getMessage(context, "error.user_already_exists", FacesMessage.SEVERITY_ERROR, (Object[])null); 
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, text, textDetail);
 			UIViewRoot root = FacesContext.getCurrentInstance().getViewRoot();
 			FacesContext.getCurrentInstance().addMessage(DspTools.getClientId(root, "username"), message);
 			return false;

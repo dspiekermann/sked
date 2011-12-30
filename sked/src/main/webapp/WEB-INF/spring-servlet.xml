@@ -43,33 +43,8 @@
     </property>
 	</bean>
 
-<!-- 
-    <bean id="sessionFactory"
-        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-        <property name="dataSource" ref="mysqldataSource" />
-        <property name="configLocation">
-            <value>classpath:hibernate.cfg.xml</value>
-        </property>
-        <property name="configurationClass">
-            <value>org.hibernate.cfg.AnnotationConfiguration</value>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
-    </bean>
- -->
     <tx:annotation-driven />
  
-<!--     
-    <bean id="transactionManager"
-        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
- -->    
-    
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="MyPersistenceUnit" />
 	</bean>
@@ -79,8 +54,7 @@
 	    <property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-<!-- 	    
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />	    
 	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
- -->	
+
 </beans>

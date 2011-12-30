@@ -1,9 +1,11 @@
 package de.dsp.sked.util;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
@@ -60,5 +62,25 @@ public class DspTools {
         }
         return null;
     }
+	
+	public static String getMsg(String msgKey) {
+		return getMsg(msgKey, null);
+	}
+	public static String getMsg(String msgKey, String paramValue) {
+	    return getMsg(null, msgKey, paramValue);
+	}
+	public static String getMsg(ResourceBundle bundle, String msgKey, String paramValue) {
+		if (bundle==null){
+			FacesContext context = FacesContext.getCurrentInstance();
+		    bundle = context.getApplication().getResourceBundle(context, "msg");
+		}
+	    String msgValue = bundle.getString(msgKey);
+	    if (paramValue!=null){
+		    MessageFormat   messageFormat = new MessageFormat(msgValue);
+		    Object[] args = {paramValue};
+		    return messageFormat.format(args);
+	    }
+	    return msgValue;
+	}
 	
 }
